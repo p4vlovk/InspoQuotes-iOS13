@@ -24,6 +24,9 @@ class QuoteTableViewController: UITableViewController {
         super.viewDidLoad()
     }
     
+    @IBAction func restorePressed(_ sender: UIBarButtonItem) {
+    }
+    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,7 +47,16 @@ class QuoteTableViewController: UITableViewController {
         return cell
     }
     
-    @IBAction func restorePressed(_ sender: UIBarButtonItem) {
+    // MARK: - Table view delegate methods
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == quotesToShow.count {
+            buyPremiumQuotes()
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func buyPremiumQuotes() {
         
     }
 }
